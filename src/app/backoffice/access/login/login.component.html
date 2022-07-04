@@ -1,0 +1,15 @@
+<form class="form" [formGroup]="form" (ngSubmit)="login(form)">
+  <mat-form-field class="form-control">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="text" required />
+  </mat-form-field>
+  <mat-form-field class="form-control">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password" required />
+  </mat-form-field>
+  <div class="form-footer">
+    <button [disabled]="form?.invalid" mat-raised-button type="submit">
+      Submit
+    </button>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "artigianando-fbef5"
+  },
+  "targets": {
+    "artigianando-fbef5": {
+      "hosting": {
+        "artigianando": [
+          "artigianando-fbef5"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <span>Artigianando</span>
+  <span class="flex-spacer"></span>
+  <a mat-button [mat-menu-trigger-for]="menu">
+    <mat-icon>menu</mat-icon>
+  </a>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item href="/">
+    <mat-icon>home</mat-icon>
+    Home
+  </a>
+  <a mat-menu-item href="/backoffice">
+    <mat-icon>dashboard</mat-icon>
+    Backoffice
+  </a>
+  <a mat-menu-item (click)="authService.logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </a>
+</mat-menu>
