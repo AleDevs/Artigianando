@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { AngularFireDatabase, AngularFireObject } from "@angular/fire/compat/database";
+import { AngularFireObject } from "@angular/fire/compat/database";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
-import { Observable } from "rxjs";
 import { User, UserPreference } from "../model/user";
 import { AuthService } from "./auth.service";
 
@@ -56,9 +55,16 @@ export class UserService {
 
     async getAllUser(): Promise<any> {
         return new Promise<any>(async (resolve, reject) => {
-            let users = this.afs.collection("users")
-            console.log(users.get());
-            
+            let users: any[] = [];
+            this.afs
+                .collection("users")
+                .get()
+                .subscribe((ss) => {
+                    ss.docs.forEach((doc) => {
+                        users.push(doc.data());
+                    });
+                });
+            resolve(users);
         })
     }
 }

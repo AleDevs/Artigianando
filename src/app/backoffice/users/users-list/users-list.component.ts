@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/shared/model/user';
 import { UserService } from 'src/app/shared/services/users.service';
@@ -11,19 +11,16 @@ import { UserService } from 'src/app/shared/services/users.service';
 })
 export class UsersListComponent implements OnInit {
 
-  UserData: User[] = [];
-  displayedColumns: any[] = [
-    'firstName',
-    'lastName',
-    'email',
-  ];
+  userData: User[] = [];
+  displayedColumns: string[] = ['email', 'firstName', 'lastName'];
 
   constructor(
     private userService: UserService
-    ) { 
-    }
+  ) {
+  }
 
   async ngOnInit(): Promise<void> {
+    this.userData = await this.userService.getAllUser();
   }
 
 }
