@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserManager } from 'src/app/shared/manager/users.manager';
+import { User } from 'src/app/shared/model/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserService } from 'src/app/shared/services/users.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,14 +10,24 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
+  public utente?: User;
+
   constructor(
-    public authService: AuthService,
-    private userManager: UserManager
-  ) { 
+    private authService: AuthService,
+    private userService: UserService
+  ) {
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    let id = this.authService.userData!.uid;
+
+    this.userService.getById(id).then((user) => {
+      this.utente = user;
+    });
+
+    await this.userService.getAllUser(); 
+
   }
 
 }
