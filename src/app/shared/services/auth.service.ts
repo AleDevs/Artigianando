@@ -57,23 +57,28 @@ export class AuthService {
 
   //register
   register(email: string, password: string): Promise<boolean> {
-    return new Promise((resolve, reject) => {
+    return new Promise<boolean>((resolve, reject) => {
       this.afAuth.createUserWithEmailAndPassword(email, password).then((result) => {
-        const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(
           `users/${result.user!.uid}`
         );
-        const userData: User = new User(
-          {
-            uid: result.user!.uid,
-            email: result.user!.email!,
-          }
-        );
-        return userRef.set(userData, {
+        var userData: any = {
+          uid : result.user?.uid,
+          email : result.user?.email,
+        };
+        // let userData: User = new User(
+        //   {
+        //     uid: result.user!.uid,
+        //     email: result.user!.email,
+        //   }
+        // );
+        userRef.set(userData, {
           merge: true,
         });
+        resolve(true);
+
       }).catch((error) => {
         this.openSnackBar(error, 'ok');
-        // reject(error);
       });
     });
   }

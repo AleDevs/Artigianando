@@ -9,8 +9,10 @@ import { UserService } from 'src/app/shared/services/users.service';
 })
 export class UsersListComponent implements OnInit {
 
+  rowSelected: string = '';
+
   userData: User[] = [];
-  displayedColumns: string[] = ['email', 'firstName', 'lastName'];
+  displayedColumns: string[] = ['uid', 'email', 'firstName', 'lastName'];
 
   constructor(
     private userService: UserService
@@ -19,6 +21,10 @@ export class UsersListComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.userData = await this.userService.getAllUser();
+  }
+
+  onSelectRow(id: string) {
+    this.rowSelected = id;
   }
 
 }

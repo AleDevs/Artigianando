@@ -30,7 +30,11 @@ export class RegisterComponent implements OnInit {
   register(form: FormGroup) {
     this.authService
       .register(form.controls.email.value, form.controls.password.value)
-      .then((res) => this.router.navigate(['/backoffice']))
+      .then((res) => {
+        console.log(res);
+        
+        this.router.navigate(['backoffice']);
+      })
       .catch((e: any) => console.log(e.message));
   }
 
