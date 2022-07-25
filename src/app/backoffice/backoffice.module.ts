@@ -7,6 +7,7 @@ import { RegistryFormComponent } from './profile/registry-form/registry-form.com
 import { UsersModule } from './users/users.module';
 import { BackofficeRoutingModule } from './backoffice-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
+import { BackofficeBaseComponent } from './backoffice-base/backoffice-base.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MaterialModule } from '../shared/material/material.module';
     DashboardComponent,
     ProfileComponent,
     RegistryFormComponent,
+    BackofficeBaseComponent,
   ],
   imports: [
     CommonModule,
