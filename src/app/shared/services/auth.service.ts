@@ -3,6 +3,7 @@ import { User } from '../model/user';
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from "@angular/router";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,7 @@ export class AuthService {
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
     private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.init();
 
@@ -42,11 +44,13 @@ export class AuthService {
           if (user) {
             this.userData = user;
             sub.unsubscribe();
+            this.router.navigate(['backoffice']);
             resolve(true);
           }
         });
       }).catch((error) => {
-        reject(error);
+        this.openSnackBar(error, 'ok');
+        // reject(error);
       });
     });
   }
@@ -68,7 +72,8 @@ export class AuthService {
           merge: true,
         });
       }).catch((error) => {
-        reject(error);
+        this.openSnackBar(error, 'ok');
+        // reject(error);
       });
     });
   }
@@ -81,9 +86,17 @@ export class AuthService {
       this.router.navigate(['login']);
     })
       .catch((error) => {
-        window.alert(error.message);
+        this.openSnackBar(error, 'ok');        
+        // window.alert(error.message);
       });
     ;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom',
+    });
   }
 
 }
