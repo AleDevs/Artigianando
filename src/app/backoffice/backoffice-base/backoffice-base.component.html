@@ -1,0 +1,13 @@
+<mat-drawer-container autosize>
+    <mat-drawer mode="side" opened>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/backoffice/profilo'"> Profilo </a>
+            <a mat-list-item [routerLink]="'/backoffice/utenti'"> Utenti </a>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <div class="vh-100">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>
