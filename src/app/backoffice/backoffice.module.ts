@@ -11,18 +11,18 @@ import { BackofficeBaseComponent } from './backoffice-base/backoffice-base.compo
 
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    ProfileComponent,
-    RegistryFormComponent,
-    BackofficeBaseComponent,
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    UsersModule,
-    BackofficeRoutingModule,
-    MaterialModule
-  ]
+    declarations: [
+        DashboardComponent,
+        ProfileComponent,
+        RegistryFormComponent,
+        BackofficeBaseComponent,
+    ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        UsersModule,
+        BackofficeRoutingModule,
+        MaterialModule
+    ],
 })
 export class BackofficeModule { }

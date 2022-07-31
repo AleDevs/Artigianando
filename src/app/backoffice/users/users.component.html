@@ -1,0 +1,12 @@
+<mat-grid-list cols="3">
+    <mat-grid-tile class="devBorder" colspan="2">
+        <div fxFlexFill>
+            <app-users-list (userSelected)="setUserSelected($event)"></app-users-list>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="devBorder">
+        <div fxFlexFill *ngIf="userSelected">
+            <app-users-detail [userSelected]="userSelected"></app-users-detail>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

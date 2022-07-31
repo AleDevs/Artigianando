@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UsersListComponent } from './users-list/users-list.component';
+import { UsersComponent } from './users.component';
 
 export const userRoutes: Routes = [
   {
     path: '',
-    component: UsersListComponent
+    component: UsersComponent
   },
   //  {
   //   path: ':userId',
-  //   canActivate: [AuthService],
   //   component: UserDetailComponent
   // }
 ];

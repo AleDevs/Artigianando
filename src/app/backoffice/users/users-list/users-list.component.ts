@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/shared/model/user';
 import { UserService } from 'src/app/shared/services/users.service';
 
@@ -12,7 +12,9 @@ export class UsersListComponent implements OnInit {
   rowSelected: string = '';
 
   userData: User[] = [];
-  displayedColumns: string[] = ['uid', 'email', 'firstName', 'lastName'];
+  displayedColumns: string[] = ['email', 'firstName', 'lastName'];
+
+  @Output() userSelected: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private userService: UserService
@@ -24,7 +26,7 @@ export class UsersListComponent implements OnInit {
   }
 
   onSelectRow(id: string) {
-    this.rowSelected = id;
+    this.userSelected.emit(id);
   }
 
 }
