@@ -59,4 +59,18 @@ export class TodosService {
   openSnackBar(message: string, action?: string) {
     this._snackBar.open(message, action);
   }
+
+  getTodoCount(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.afs.collection(this.collectionName, ref => ref.where('done', '==', false)).get().subscribe({
+        next(snapshot) {
+          resolve(snapshot.docs.length);
+        },
+        error(msg) {
+          console.log('Error Getting Location: ', msg);
+        }
+      });
+    });
+
+  }
 }

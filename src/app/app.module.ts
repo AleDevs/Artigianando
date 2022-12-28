@@ -22,6 +22,7 @@ import { RegisterComponent } from './backoffice/access/register/register.compone
 import { UserService } from './shared/services/users.service';
 import { ThemeService } from './shared/services/theme.service';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatFormFieldDefaultOptions, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 const auth = (authService: AuthService) => {
   return (): Promise<boolean> => {
@@ -33,6 +34,10 @@ const theme = (themeService: ThemeService) => {
   return () => {
     themeService.init();
   }
+};
+
+const appearance: MatFormFieldDefaultOptions = {
+  appearance: 'fill'
 };
 
 @NgModule({
@@ -60,7 +65,10 @@ const theme = (themeService: ThemeService) => {
     { provide: APP_INITIALIZER, useFactory: theme, deps: [ThemeService], multi: true },
     AuthService,
     UserService,
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
+
+    //material
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: appearance }
   ],
   bootstrap: [AppComponent]
 })

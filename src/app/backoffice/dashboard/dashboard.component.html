@@ -1,1 +1,16 @@
 <h1>Benvenuto <strong>{{utente?.firstName | titlecase}}</strong></h1>
+
+<div fxLayout="row">
+    <div fxFlex="30">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title class="h1" [innerHTML]="todos"></mat-card-title>
+                <mat-card-subtitle>Todo Attivi</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <a mat-button [routerLink]="'/backoffice/todos'">Vedi lista todo</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div fxFlex></div>
+</div>
