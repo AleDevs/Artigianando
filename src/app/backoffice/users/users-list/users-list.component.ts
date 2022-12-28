@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/shared/model/user';
 import { UserService } from 'src/app/shared/services/users.service';
 
+
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -23,6 +24,7 @@ export class UsersListComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.userData = await this.userService.getAllUser();
+    
   }
 
   onSelectRow(id: string) {

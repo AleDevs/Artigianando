@@ -8,13 +8,13 @@ import { ToggleThemeComponent } from './component/toggle-theme/toggle-theme.comp
 @NgModule({
   declarations: [
     NavigationComponent,
-    ToggleThemeComponent
+    ToggleThemeComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
-    FlexModule
+    FlexModule,
   ],
   exports: [
     //component
@@ -24,7 +24,7 @@ import { ToggleThemeComponent } from './component/toggle-theme/toggle-theme.comp
     //module
     MaterialModule,
     FlexLayoutModule,
-    FlexModule
+    FlexModule,
   ]
 })
 export class SharedModule { }

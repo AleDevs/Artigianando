@@ -67,4 +67,8 @@ export class UserService {
             resolve(users);
         })
     }
+
+    getEmployees() {
+        return this.afs.collection('users').snapshotChanges();
+      }
 }

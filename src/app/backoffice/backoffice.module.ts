@@ -8,6 +8,9 @@ import { UsersModule } from './users/users.module';
 import { BackofficeRoutingModule } from './backoffice-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
 import { BackofficeBaseComponent } from './backoffice-base/backoffice-base.component';
+import { ThemesComponent } from './themes/themes.component';
+import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { TodoAddComponent } from './todos/todo-add/todo-add.component';
 
 
 @NgModule({
@@ -16,13 +19,16 @@ import { BackofficeBaseComponent } from './backoffice-base/backoffice-base.compo
         ProfileComponent,
         RegistryFormComponent,
         BackofficeBaseComponent,
+        ThemesComponent,
+        TodoListComponent,
+        TodoAddComponent
     ],
     imports: [
         CommonModule,
         SharedModule,
         UsersModule,
         BackofficeRoutingModule,
-        MaterialModule
+        MaterialModule,
     ],
 })
 export class BackofficeModule { }

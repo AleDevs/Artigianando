@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/shared/model/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserService } from 'src/app/shared/services/users.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,19 +10,22 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public utente?: User;
+
   constructor(
     private authService: AuthService,
-    private router: Router
+    private userService: UserService
   ) {
 
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    let id = this.authService.userData!.uid;
 
-  logout() {
-    this.authService
-      .logout()
-      .then(() => this.router.navigate(['/']))
-      .catch((e: any) => console.log(e.message));
+    this.userService.getById(id).then((user) => {
+      this.utente = user;
+    });
+
   }
+
 }

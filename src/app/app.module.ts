@@ -21,6 +21,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { RegisterComponent } from './backoffice/access/register/register.component';
 import { UserService } from './shared/services/users.service';
 import { ThemeService } from './shared/services/theme.service';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 const auth = (authService: AuthService) => {
   return (): Promise<boolean> => {
@@ -55,10 +56,11 @@ const theme = (themeService: ThemeService) => {
     provideAuth(() => getAuth()),
   ],
   providers: [
-    {provide: APP_INITIALIZER, useFactory: auth, deps: [AuthService], multi: true},
-    {provide: APP_INITIALIZER, useFactory: theme, deps: [ThemeService], multi: true},
+    { provide: APP_INITIALIZER, useFactory: auth, deps: [AuthService], multi: true },
+    { provide: APP_INITIALIZER, useFactory: theme, deps: [ThemeService], multi: true },
     AuthService,
     UserService,
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
   ],
   bootstrap: [AppComponent]
 })

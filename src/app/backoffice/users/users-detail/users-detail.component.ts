@@ -45,12 +45,12 @@ export class UsersDetailComponent implements OnInit {
     this.formGroup.patchValue(this.user);
   }
 
-  onSubmit() {
+  async onSubmit() {
     let user: User = new User();
     user.firstName = this.formGroup.controls.firstName.value;
     user.lastName = this.formGroup.controls.lastName.value;
     user.email = this.formGroup.controls.email.value;
-    this.userService.updateMyUser(user)
+    await this.userService.updateMyUser(user);
   }
 
 }

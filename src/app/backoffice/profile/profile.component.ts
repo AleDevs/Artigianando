@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
       this.utente = user;
     });
 
-    await this.userService.getAllUser(); 
+    await this.userService.getAllUser();
 
   }
 
