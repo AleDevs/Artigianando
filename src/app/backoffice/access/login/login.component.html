@@ -8,7 +8,7 @@
     <input matInput formControlName="password" type="password" required />
   </mat-form-field>
   <div class="form-footer">
-    <button [disabled]="form?.invalid" mat-raised-button type="submit">
+    <button [disabled]="form!.invalid" mat-raised-button type="submit">
       Submit
     </button>
   </div>

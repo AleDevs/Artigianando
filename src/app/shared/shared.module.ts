@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './component/navigation/navigation.component';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule, FlexModule } from "@angular/flex-layout";
-import { ToggleThemeComponent } from './component/toggle-theme/toggle-theme.component';
 
 @NgModule({
   declarations: [
     NavigationComponent,
-    ToggleThemeComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +17,6 @@ import { ToggleThemeComponent } from './component/toggle-theme/toggle-theme.comp
   exports: [
     //component
     NavigationComponent,
-    ToggleThemeComponent,
 
     //module
     MaterialModule,

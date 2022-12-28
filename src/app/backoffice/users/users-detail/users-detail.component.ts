@@ -47,9 +47,9 @@ export class UsersDetailComponent implements OnInit {
 
   async onSubmit() {
     let user: User = new User();
-    user.firstName = this.formGroup.controls.firstName.value;
-    user.lastName = this.formGroup.controls.lastName.value;
-    user.email = this.formGroup.controls.email.value;
+    user.firstName = this.formGroup.controls.firstName.value ? this.formGroup.controls.firstName.value: undefined;
+    user.lastName = this.formGroup.controls.lastName.value  ? this.formGroup.controls.lastName.value: undefined;
+    user.email = this.formGroup.controls.email.value  ? this.formGroup.controls.email.value: undefined;
     await this.userService.updateMyUser(user);
   }
 
