@@ -1,0 +1,12 @@
+<form [formGroup]="this.form">
+  <!-- <input placeholder="Insert ToDo" formControlName="title" type="text" class="input-field col s12" /> -->
+
+  <mat-form-field>
+    <mat-label>Insert Todo</mat-label>
+    <input matInput type="text" placeholder="Insert Todo" formControlName="title">
+  </mat-form-field>
+
+  <button class="mx-3" mat-raised-button color="primary" (click)="onSubmit()">
+    Add new
+  </button>
+</form>
