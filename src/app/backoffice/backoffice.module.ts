@@ -6,12 +6,10 @@ import { SharedModule } from '../shared/shared.module';
 import { RegistryFormComponent } from './profile/registry-form/registry-form.component';
 import { UsersModule } from './users/users.module';
 import { BackofficeRoutingModule } from './backoffice-routing.module';
-import { MaterialModule } from '../shared/material/material.module';
 import { BackofficeBaseComponent } from './backoffice-base/backoffice-base.component';
 import { ThemesComponent } from './themes/themes.component';
-import { TodoListComponent } from './todos/todo-list/todo-list.component';
-import { TodoAddComponent } from './todos/todo-add/todo-add.component';
-
+import { TodosModule } from './todos/todos.module';
+import { PortfoliosModule } from './portfolios/portfolios.module';
 
 @NgModule({
     declarations: [
@@ -20,15 +18,14 @@ import { TodoAddComponent } from './todos/todo-add/todo-add.component';
         RegistryFormComponent,
         BackofficeBaseComponent,
         ThemesComponent,
-        TodoListComponent,
-        TodoAddComponent
     ],
     imports: [
         CommonModule,
         SharedModule,
         UsersModule,
+        TodosModule,
+        PortfoliosModule,
         BackofficeRoutingModule,
-        MaterialModule,
     ],
 })
 export class BackofficeModule { }

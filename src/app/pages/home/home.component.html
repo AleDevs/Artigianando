@@ -1,0 +1,14 @@
+<div class="parent-container overflow-hidden">
+  <div #page *ngFor="let page of [0,1,2,3,4]" [class]="'vh-100 p-3 position-relative bg-' + (page + 1)">
+    <h3 class="text-white">Page {{page + 1}}</h3>
+    <div class="page-content">
+      <h3>Lorem Ipsum</h3>
+      <p>beatae esse velit laudantium nam eligendi possimus</p>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button #prev class="btn btn-sm btn-light me-1" (click)="clickPrev()">prev</button>
+    <button #next class="btn btn-sm btn-light" (click)="clickNext()">next</button>
+  </div>
+</div>

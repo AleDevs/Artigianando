@@ -3,6 +3,7 @@
 @include mat.core();
 
 @import './assets/themes/cosmic';
+@import './assets/themes/test';
 
 
 $light-app-theme: mat-light-theme((color: (primary: mat-palette($mat-indigo),

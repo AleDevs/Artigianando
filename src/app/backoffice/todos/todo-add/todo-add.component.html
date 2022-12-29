@@ -3,10 +3,10 @@
 
   <mat-form-field>
     <mat-label>Insert Todo</mat-label>
-    <textarea matInput type="text" placeholder="Insert Todo" formControlName="title"></textarea>
+    <input matInput type="text" placeholder="Insert Todo" formControlName="title" />
   </mat-form-field>
 
-  <button class="mx-3" mat-raised-button color="primary" (click)="onSubmit()">
-    Add new
+  <button mat-icon-button color="accent" (click)="onSubmit()">
+    <mat-icon>add</mat-icon>
   </button>
 </form>

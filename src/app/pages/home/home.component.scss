@@ -1,0 +1,47 @@
+.bg-1 {
+    background: #f44336;
+  }
+  .bg-2 {
+    background: #9c27b0;
+  }
+  .bg-3 {
+    background: #3f51b5;
+  }
+  .bg-4 {
+    background: #03a9f4;
+  }
+  .bg-5 {
+    background: #009688;
+  }
+  .bg-6 {
+    background: #8bc34a;
+  }
+  .bg-7 {
+    background: #ffeb3b;
+  }
+  .bg-8 {
+    background: #ff9800;
+  }
+  .bg-9 {
+    background: #ff5722;
+  }
+  .nav {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+  .page-content {
+    position: absolute;
+    left: 20%;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s 0.5s;
+  }
+  .page-content.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .parent-container {
+    height: 100vh;
+  }
+  

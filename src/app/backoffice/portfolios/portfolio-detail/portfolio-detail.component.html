@@ -1,0 +1,38 @@
+<mat-card class="mb-5">
+    <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <mat-card-title>Nuovo <strong>Portfolio</strong></mat-card-title>
+        </div>
+        <div>
+            <button mat-icon-button color="primary" aria-label="Back" (click)="back()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="mb-5">
+    <mat-card-content>
+        <form [formGroup]="this.form">
+
+            <div fxLayout="row" fxLayoutGap="50px">
+                <!-- title -->
+                <mat-form-field fxFlex>
+                    <mat-label>Titolo</mat-label>
+                    <input matInput type="text" placeholder="Titolo" formControlName="title" />
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="50px">
+                <!-- description -->
+                <mat-form-field fxFlex>
+                    <mat-label>Descrizione</mat-label>
+                    <textarea matInput type="text" placeholder="Descrizione" formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Crea</button>
+    </mat-card-actions>
+</mat-card>

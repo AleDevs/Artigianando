@@ -1,19 +1,22 @@
 
-export class Todo {
+export class Portfolio {
     id?: string;
     title?: string;
-    done?: boolean;
+    description?: string;
+    isActive?: boolean;
     insertDate?: Date;
 
     constructor(
         id: string,
         title: string,
-        done: boolean,
+        description: string,
+        isActive: boolean,
         insertDate: Date,
     ) {
         this.id = id;
         this.title = title;
-        this.done = done;
+        this.description = description;
+        this.isActive = isActive;
         this.insertDate = insertDate;
     }
 }
