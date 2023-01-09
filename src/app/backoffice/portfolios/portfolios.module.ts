@@ -15,7 +15,6 @@ import { PortfolioDetailComponent } from './portfolio-detail/portfolio-detail.co
   imports: [
     CommonModule,
     SharedModule,
-    PortfoliosRoutingModule
   ]
 })
 export class PortfoliosModule { }

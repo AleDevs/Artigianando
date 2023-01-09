@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PortfolioDetailComponent } from './portfolios/portfolio-detail/portfolio-detail.component';
+import { PortfolioListComponent } from './portfolios/portfolio-list/portfolio-list.component';
 import { portfolioRoutes } from './portfolios/portfolios-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ThemesComponent } from './themes/themes.component';
@@ -11,7 +13,7 @@ export const backofficeRoutes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'dashboard',
@@ -27,11 +29,11 @@ export const backofficeRoutes: Routes = [
   },
   {
     path: 'todos',
-    component: TodoListComponent
+    component: TodoListComponent,
   },
   {
     path: 'portfolio',
-    children: portfolioRoutes
+    children: portfolioRoutes,
   },
   {
     path: 'utenti',

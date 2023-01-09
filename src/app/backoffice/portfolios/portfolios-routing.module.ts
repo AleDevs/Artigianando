@@ -6,10 +6,10 @@ import { PortfolioListComponent } from './portfolio-list/portfolio-list.componen
 export const portfolioRoutes: Routes = [
   {
     path: '',
-    component: PortfolioListComponent
+    component: PortfolioListComponent,
   },
   {
-    path: 'detail/:portfolioId',
+    path: ':portfolioId',
     component: PortfolioDetailComponent
   }
 ];

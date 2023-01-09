@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
       this.utente = user;
     });
 
-    this.todos = await this._todoService.getTodoCount();
+    // this.todos = await this._todoService.getTodoCount();
   }
 
 }

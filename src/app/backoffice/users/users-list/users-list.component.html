@@ -1,5 +1,7 @@
 <mat-card fxFill>
-  <mat-card-title>Lista utenti</mat-card-title>
+  <mat-card-header class="mb-4">
+    <mat-card-title>Lista utenti</mat-card-title>
+  </mat-card-header>
   <mat-card-content>
     <table fxFlexFill mat-table [dataSource]="userData" class="mat-elevation-z8" *ngIf="userData.length > 0">
 

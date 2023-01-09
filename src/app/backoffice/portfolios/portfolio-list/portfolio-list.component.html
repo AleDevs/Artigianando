@@ -1,18 +1,10 @@
 <mat-card>
-    <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
-        <div>
-            <mat-card-title>Lista <strong>Portfolio</strong></mat-card-title>
-        </div>
-        <div>
-            <button mat-icon-button color="primary" aria-label="Add new" [routerLink]="['./detail/0']"
-                routerLinkActive="router-link-active">
-                <mat-icon>add</mat-icon>
-            </button>
-        </div>
-    </mat-card-content>
-</mat-card>
-
-<mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between center" class="mb-4">
+        <mat-card-title>Lista <strong>Portfolio</strong></mat-card-title>
+        <button mat-icon-button color="primary" aria-label="Add new" (click)="new()" matTooltip="Aggiungi nuovo">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-header>
     <mat-card-content>
         <table #portfolioTable mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -29,7 +21,7 @@
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag [cdkDragData]="row"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="edit(row)"></tr>
         </table>
     </mat-card-content>
 </mat-card>
