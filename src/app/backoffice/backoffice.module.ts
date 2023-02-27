@@ -10,12 +10,11 @@ import { BackofficeBaseComponent } from './backoffice-base/backoffice-base.compo
 import { ThemesComponent } from './themes/themes.component';
 import { TodosModule } from './todos/todos.module';
 import { PortfoliosModule } from './portfolios/portfolios.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
     declarations: [
         DashboardComponent,
-        ProfileComponent,
-        RegistryFormComponent,
         BackofficeBaseComponent,
         ThemesComponent,
     ],
@@ -26,6 +25,7 @@ import { PortfoliosModule } from './portfolios/portfolios.module';
         TodosModule,
         PortfoliosModule,
         BackofficeRoutingModule,
+        ProfileModule
     ],
 })
 export class BackofficeModule { }

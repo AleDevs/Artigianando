@@ -23,6 +23,7 @@ import { UserService } from './shared/services/users.service';
 import { ThemeService } from './shared/services/theme.service';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatFormFieldDefaultOptions, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { Parallax1Component } from './pages/parallax/parallax1/parallax1.component';
 
 const auth = (authService: AuthService) => {
   return (): Promise<boolean> => {
@@ -46,6 +47,7 @@ const appearance: MatFormFieldDefaultOptions = {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    Parallax1Component,
   ],
   imports: [
     BrowserModule,

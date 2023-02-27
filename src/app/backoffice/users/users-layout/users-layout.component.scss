@@ -1,0 +1,10 @@
+:host {
+    mat-grid-tile {
+        background: lightblue;
+    }
+
+    ::ng-deep.mat-grid-tile-content {
+        padding: 100px 0;
+        align-items: start;
+    }
+}

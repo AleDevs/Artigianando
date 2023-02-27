@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { portfolioRoutes } from './portfolios/portfolios-routing.module';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileLayoutComponent } from './profile/profile-layout/profile-layout.component';
 import { ThemesComponent } from './themes/themes.component';
-import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { TodosLayoutComponent } from './todos/todos-layout/todos-layout.component';
 import { userRoutes } from './users/users-routing.module';
 
 export const backofficeRoutes: Routes = [
@@ -19,7 +19,7 @@ export const backofficeRoutes: Routes = [
   },
   {
     path: 'profilo',
-    component: ProfileComponent
+    component: ProfileLayoutComponent
   },
   {
     path: 'temi',
@@ -27,7 +27,7 @@ export const backofficeRoutes: Routes = [
   },
   {
     path: 'todos',
-    component: TodoListComponent
+    component: TodosLayoutComponent
   },
   {
     path: 'portfolio',

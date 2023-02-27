@@ -34,3 +34,10 @@ $dark-app-theme: mat-dark-theme((color: (primary: mat-palette($mat-cyan),
 .dark-theme {
   @include angular-material-color($dark-app-theme);
 }
+
+
+
+/*altro*/
+// * {
+//   cursor: none!important;
+//   }

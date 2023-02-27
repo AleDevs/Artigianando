@@ -11,7 +11,7 @@ import { TodosService } from '../todos.service';
 })
 export class TodoListComponent implements OnInit {
 
-  displayedColumns: string[] = ['done', 'title', 'delete'];
+  displayedColumns: string[] = ['done', 'title', 'delete', 'edit'];
   dataSource: any[] = [];
   @ViewChild('table') table?: MatTable<Todo>;
   showAll: boolean = false;
@@ -45,6 +45,10 @@ export class TodoListComponent implements OnInit {
     if (confirm('Sei sicuro di voler cancellare il ToDo?')) {
       this._todoService.delete(id);
     }
+  }
+  
+  edit(id: string) {
+    console.log('edit:', id);
   }
 
   changeStatus(id: string, done: boolean) {

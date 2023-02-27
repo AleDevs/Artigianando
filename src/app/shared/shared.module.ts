@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './component/navigation/navigation.component';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule, FlexModule } from "@angular/flex-layout";
+import { CursorCircleComponent } from './component/cursor-circle/cursor-circle.component';
 
 @NgModule({
   declarations: [
     NavigationComponent,
+    CursorCircleComponent,
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { FlexLayoutModule, FlexModule } from "@angular/flex-layout";
   exports: [
     //component
     NavigationComponent,
-
+    CursorCircleComponent,
+    
     //module
     MaterialModule,
     FlexLayoutModule,

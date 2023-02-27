@@ -7,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  userSelected: string = '';
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  setUserSelected(event: string){
-    this.userSelected = event;
   }
 
 }
