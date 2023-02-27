@@ -1,7 +1,8 @@
 <mat-card class="mb-5">
     <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <div>
-            <mat-card-title>Nuovo <strong>Portfolio</strong></mat-card-title>
+            <mat-card-title *ngIf="isNew">Nuovo <strong>Portfolio</strong></mat-card-title>
+            <mat-card-title *ngIf="!isNew">Modifica <strong>Portfolio: </strong>[NOME_PORTFOLIO]</mat-card-title>
         </div>
         <div>
             <button mat-icon-button color="primary" aria-label="Back" (click)="back()">

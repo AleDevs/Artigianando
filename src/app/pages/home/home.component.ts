@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostListener, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { PorfolioService } from 'src/app/backoffice/portfolios/porfolios.service';
+import { Portfolio } from 'src/app/backoffice/portfolios/portfolio';
 
 @Component({
   selector: 'app-home',
@@ -11,27 +13,38 @@ export class HomeComponent {
   @ViewChild('prev') prev!: ElementRef;
   @ViewChild('next') next!: ElementRef;
 
-  idlePeriod = 100;
-  animationDuration = 1000;
-  lastAnimation = 0;
   index = 0;
 
-  togglePageContent(index: any, state: any) {
+  portfoliosList: Portfolio[] = [];
+
+  constructor(
+    private portfolioService: PorfolioService,
+  ) {
+
+  }
+
+  togglePageContent(index: number, state: string) {
     if (state === 'show') {
       this.pages
         .toArray()
-        [index].nativeElement.querySelector('.page-content')
+      [index].nativeElement.querySelector('.page-content')
         .classList.add('show');
     } else {
       this.pages
         .toArray()
-        [index].nativeElement.querySelector('.page-content')
+      [index].nativeElement.querySelector('.page-content')
         .classList.remove('show');
     }
   }
 
-  ngAfterViewInit() {
-    this.togglePageContent(0, 'show');
+  async ngOnInit() {
+    await this.getAll();
+  }
+
+  async ngAfterViewInit() {
+    if(this.portfoliosList.length > 0){
+      this.togglePageContent(0, 'show');
+    }
   }
 
   clickPrev() {
@@ -47,7 +60,7 @@ export class HomeComponent {
   }
 
   clickNext() {
-    if (this.index > 3) return;
+    if (this.index >= (this.portfoliosList.length - 1)) return;
     this.togglePageContent(this.index, 'hide');
     this.index++;
     this.pages.forEach((page, i) => {
@@ -56,5 +69,11 @@ export class HomeComponent {
         page.nativeElement.scrollIntoView({ behavior: 'smooth' });
       }
     });
+  }
+
+  getAll() {
+    this.portfolioService.getAll().subscribe((res: any[]) => {
+      this.portfoliosList = res;
+    })
   }
 }

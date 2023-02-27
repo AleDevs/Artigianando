@@ -30,13 +30,13 @@
     top: 1rem;
     right: 1rem;
   }
-  .page-content {
-    position: absolute;
-    left: 20%;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.5s 0.5s;
-  }
+  // .page-content {
+  //   position: absolute;
+  //   left: 20%;
+  //   opacity: 0;
+  //   transform: translateY(100px);
+  //   transition: all 0.5s 0.5s;
+  // }
   .page-content.show {
     opacity: 1;
     transform: translateY(0);

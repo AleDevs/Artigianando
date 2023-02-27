@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PorfolioService } from '../porfolios.service';
+import { Portfolio } from '../portfolio';
 
 @Component({
   selector: 'app-portfolio-detail',
@@ -11,10 +13,14 @@ import { PorfolioService } from '../porfolios.service';
 export class PortfolioDetailComponent {
 
   form!: FormGroup;
+  routeSub?: Subscription;
+  isNew: boolean = true;
+  currentPortfolio?: Portfolio;
 
   constructor(
     private portfolioService: PorfolioService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -24,10 +30,27 @@ export class PortfolioDetailComponent {
       description: new FormControl('', [Validators.required]),
       isActive: new FormControl('')
     })
+
+    this.routeSub = this.route.params.subscribe(params => {
+      if (params?.portfolioId == undefined && params?.portfolioId != null) return;
+
+      if (params?.portfolioId == 0) {
+        this.isNew = true;
+      } else {
+        this.isNew = false;
+        console.log(this.portfolioService.getPortfolioById(params?.portfolioId));
+        
+        // this.currentPortfolio = 
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.routeSub?.unsubscribe();
   }
 
   back(): void {
-    this.router.navigate(["/backoffice/portfolio"]);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   onSubmit() {
@@ -35,5 +58,9 @@ export class PortfolioDetailComponent {
       return;
     }
     this.portfolioService.add(this.form.value);
+  }
+
+  getPortfolioById(portfolioId: string) {
+
   }
 }

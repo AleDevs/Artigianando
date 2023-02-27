@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(form.controls.email.value, form.controls.password.value)
       .then((res) => this.router.navigate(['/backoffice']))
-      .catch((e: any) => console.log(e.message));
+      .catch((e: Error) => console.log(e.message));
   }
 
 }

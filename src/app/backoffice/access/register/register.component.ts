@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         
         this.router.navigate(['backoffice']);
       })
-      .catch((e: any) => console.log(e.message));
+      .catch((e: Error) => console.log(e.message));
   }
 
 }

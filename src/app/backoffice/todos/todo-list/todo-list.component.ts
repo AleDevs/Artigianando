@@ -36,7 +36,7 @@ export class TodoListComponent implements OnInit {
   }
 
   getAll(showAll: boolean) {
-    this._todoService.getAll(showAll).subscribe(res => {
+    this._todoService.getAll(showAll).subscribe((res: any[]) => {
       this.dataSource = res;
     })
   }

@@ -11,29 +11,35 @@ export class PorfolioService {
   collectionName: string = 'portfolios';
 
   constructor(
-    private _afs: AngularFirestore,
-    private _snackBar: MatSnackBar
+    private afs: AngularFirestore,
+    private snackBar: MatSnackBar
   ) { }
 
   getAll() {
-    return this._afs.collection(this.collectionName).valueChanges();
+    return this.afs.collection(this.collectionName).valueChanges();
+  }
+
+  getPortfolioById(portfolioId: string) {
+    return this.afs.collection(this.collectionName).doc(portfolioId).valueChanges().subscribe(item => {
+      return item; 
+    });
   }
 
   add(formValues: Portfolio) {
-    let id = this._afs.createId();
+    let id = this.afs.createId();
 
-    this._afs.collection(this.collectionName).doc(id).set({
+    this.afs.collection(this.collectionName).doc(id).set({
       id: id,
       title: formValues?.title,
       description: formValues?.description,
     }).then(() => {
       this.openSnackBar('Portfolio created', 'ok');
-    }).catch((e: any) => {
+    }).catch((e: Error) => {
       this.openSnackBar('error: ' + e, 'ok');
     });
   }
 
   openSnackBar(message: string, action?: string) {
-    this._snackBar.open(message, action);
+    this.snackBar.open(message, action);
   }
 }

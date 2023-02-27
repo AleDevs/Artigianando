@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PorfolioService } from '../porfolios.service';
 import { Portfolio } from '../portfolio';
 
@@ -10,11 +11,13 @@ import { Portfolio } from '../portfolio';
 export class PortfolioListComponent {
 
   displayedColumns: string[] = ['title'];
-  dataSource: any[] = [];
+  dataSource: Portfolio[] = [];
   @ViewChild('portfolioTable') portfolioTable?: MatTable<Portfolio>;
 
   constructor(
-    private _portfolioService: PorfolioService,
+    private portfolioService: PorfolioService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -22,9 +25,17 @@ export class PortfolioListComponent {
   }
 
   getAll() {
-    this._portfolioService.getAll().subscribe(res => {
+    this.portfolioService.getAll().subscribe((res: any[]) => {
       this.dataSource = res;
     })
+  }
+
+  new(){
+    this.router.navigate([`${this.router.url}`, 0]);
+  }
+  
+  edit(portfolio: Portfolio){
+    this.router.navigate([`${this.router.url}`, portfolio ? portfolio.id : 0]);
   }
 
 }

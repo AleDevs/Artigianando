@@ -32,7 +32,7 @@ export class TodosService {
       done: false
     }).then(() => {
       this.openSnackBar('Todo created', 'ok');
-    }).catch((e: any) => {
+    }).catch((e: Error) => {
       this.openSnackBar('error: ' + e, 'ok');
     });
   }
@@ -60,7 +60,7 @@ export class TodosService {
     this._snackBar.open(message, action);
   }
 
-  getTodoCount(): Promise<any> {
+  getTodoCount(): Promise<number> {
     return new Promise((resolve, reject) => {
       this.afs.collection(this.collectionName, ref => ref.where('done', '==', false)).get().subscribe({
         next(snapshot) {
